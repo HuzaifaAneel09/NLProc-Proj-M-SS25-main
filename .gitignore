@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *.so
 
-# Virtual environment
+# Python virtual environments
 .env/
 .venv/
 env/
@@ -13,17 +13,31 @@ venv/
 .ipynb_checkpoints/
 
 # FAISS index and embeddings
+retriever_store/
 saved_index/
 *.faiss
 *.pkl
+
+# Logs and test outputs
+*.log
+*.jsonl
+evaluation/logs.jsonl
+
+# Model cache and HuggingFace files
+~/.cache/
+~/.huggingface/
+*.bin
+*.safetensors
+
+# Output artifacts
+*.out
+*.tmp
 
 # OS-specific files
 .DS_Store
 Thumbs.db
 
-# VS Code or other IDE configs
+# IDE/editor configs
 .vscode/
 .idea/
-
-# Log files
-*.log
+*.swp

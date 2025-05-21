@@ -1,0 +1,19 @@
+Python is a popular programming language created by Guido van Rossum.
+
+The first iPhone was released by Apple in 2007.
+
+Alan Turing is considered the father of modern computer science.
+
+The speed of light is approximately 299,792 kilometers per second.
+
+HTML stands for HyperText Markup Language.
+
+Google was founded by Larry Page and Sergey Brin.
+
+The first email was sent by Ray Tomlinson in 1971.
+
+Java is a high-level programming language developed by Sun Microsystems.
+
+OpenAI developed the ChatGPT language model.
+
+Linux was created by Linus Torvalds.

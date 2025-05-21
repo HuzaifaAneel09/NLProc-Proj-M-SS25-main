@@ -1,4 +1,8 @@
 openai 
 sentence-transformers 
 faiss-cpu 
-hf_xet 
+hf_xet
+transformers
+torch
+numpy
+scikit-learn 

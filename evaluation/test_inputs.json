@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Who created Python?",
+    "expected_answer_contains": "Guido van Rossum"
+  },
+  {
+    "question": "When was the first iPhone released?",
+    "expected_answer_contains": "2007"
+  },
+  {
+    "question": "Who is considered the father of modern computer science?",
+    "expected_answer_contains": "Alan Turing"
+  },
+  {
+    "question": "What does HTML stand for?",
+    "expected_answer_contains": "HyperText Markup Language"
+  },
+  {
+    "question": "Who created Linux?",
+    "expected_answer_contains": "Linus Torvalds"
+  }
+]
