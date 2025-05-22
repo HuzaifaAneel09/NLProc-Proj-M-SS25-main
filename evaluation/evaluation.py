@@ -1,3 +1,4 @@
+import argparse
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -36,10 +37,35 @@ def evaluate_pipeline(data_path, retriever_store, test_input_path, log_path):
 
     print(f"\n{passed}/{len(tests)} test cases passed.")
 
+
 if __name__ == "__main__":
-    evaluate_pipeline(
-        data_path="baseline/data/tech_facts.txt",
-        retriever_store="baseline/retriever_store",
-        test_input_path="evaluation/test_inputs.json",
-        log_path="evaluation/logs.jsonl"
-    )
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--custom_question", type=str, help="Ask a custom question")
+    args = parser.parse_args()
+
+    if args.custom_question:
+        pipeline = RAGPipeline(
+            data_path="baseline/data/tech_facts.txt",
+            retriever_store="baseline/retriever_store"
+        )
+        result = pipeline.run(args.custom_question)
+
+        # Log the result
+        log_result(result, "evaluation/logs.jsonl")
+
+        print("\n--- Retrieved Context ---")
+        for i, chunk in enumerate(result['retrieved_chunks'], 1):
+            print(f"[{i}] {chunk}")
+
+        print("\n--- Prompt ---")
+        print(result['prompt'])
+
+        print("\n--- Generated Answer ---")
+        print(result['generated_answer'])
+    else:
+        evaluate_pipeline(
+            data_path="baseline/data/tech_facts.txt",
+            retriever_store="baseline/retriever_store",
+            test_input_path="evaluation/test_inputs.json",
+            log_path="evaluation/logs.jsonl"
+        )
