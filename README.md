@@ -175,3 +175,21 @@ Expected: guido van rossum
 Got: Guido van Rossum created Python.
 ✅ PASS
 ```
+
+---
+
+## 🔄 Ask a Custom Question (Interactive Mode)
+
+You can also ask your own custom question using the same pipeline. This is useful for quick testing or demo purposes without modifying test files.
+
+💬 **Example:**
+
+```bash
+python evaluation/evaluation.py --custom_question "Who developed ChatGPT?"
+```
+
+This will:
+* Load the knowledge base
+* Retrieve relevant context
+* Generate and display an answer
+* Save the result to `evaluation/logs.jsonl`
