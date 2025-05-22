@@ -53,6 +53,30 @@ NLPROC-PROJ-M-SS25-MAIN/
 
 ---
 
+## 🧠 How Vector Search Works
+
+Vector search works by representing both documents and queries as numerical vectors in a high-dimensional space using sentence embeddings. The system measures the **distance or similarity** between these vectors using metrics like **cosine similarity** or **Euclidean (L2) distance**.
+
+For example:
+* Similar questions like "Who invented Python?" and "Who created Python?" will have embeddings close together.
+* FAISS efficiently searches for nearest neighbors in this vector space to find the most semantically similar document chunks to a given query.
+
+---
+
+## 📊 Observations from FAISS Retrieval
+
+In the FAISS experiment, different phrasings of the question **"Where is the Eiffel Tower?"** consistently retrieve the correct fact about its location. However, **slight shifts in wording can change the rank or distance of retrieval results**.
+
+**Example differences:**
+* "Where is the Eiffel Tower?" vs "Tell me the location of the Eiffel Tower."
+* All are semantically similar, but due to token or structure differences, the embedding space may slightly shift the result rankings.
+
+This highlights that:
+* **Semantic models generalize well**, but are still sensitive to phrasing.
+* Preprocessing, paraphrasing, or reranking could help improve robustness.
+
+---
+
 ## 📘 File and Function Descriptions
 
 ### `baseline/data/tech_facts.txt`
@@ -69,6 +93,20 @@ Implements the `Retriever` class that manages vector-based document retrieval us
 - `save(path)`: Saves FAISS index and document list.
 - `load(path)`: Loads the index and documents.
 - `initialize_or_load(data_path, save_path)`: Loads existing index or builds a new one.
+
+---
+
+### `baseline/retriever/week2_embedding_analysis.py`
+Encodes 10 manually selected sentences using `all-MiniLM-L6-v2`, computes cosine similarity between them, and visualizes their relationships using PCA.
+* **Purpose**: Explore how sentence embeddings capture semantic similarity.
+* **Key output**: Heatmap of cosine similarity + 2D scatter plot via PCA.
+
+---
+
+### `baseline/retriever/week2_faiss_query_variants.py`
+Demonstrates FAISS-based retrieval by storing 10 sample facts, and querying them with multiple phrasings of the same question (e.g., "Where is the Eiffel Tower?").
+* **Purpose**: Understand how small changes in query wording affect similarity search.
+* **Key output**: Top-k retrieved facts and their distances for each query.
 
 ---
 
@@ -195,3 +233,20 @@ This will:
 * Retrieve relevant context
 * Generate and display an answer
 * Save the result to `evaluation/logs.jsonl`
+
+---
+
+### 📈 Week 2 Experiments (Embeddings & FAISS Retrieval) (How to Run)
+
+**A. Sentence Embedding Similarity & PCA Visualization**
+
+```bash
+python baseline/retriever/week2_embedding_analysis.py
+```
+
+**B. Query Variants with FAISS Similarity Search**
+
+```bash
+python baseline/retriever/week2_faiss_query_variants.py
+```
+
