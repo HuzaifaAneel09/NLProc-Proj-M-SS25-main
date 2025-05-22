@@ -29,6 +29,8 @@ NLPROC-PROJ-M-SS25-MAIN/
 │   │   └── generator.py
 │   ├── retriever/
 │   │   ├── retriever.py
+│   │   ├── week2_embedding_analysis.py
+│   │   ├── week2_faiss_search.py
 │   │   └── retriever_store/
 │   └── pipeline.py
 │

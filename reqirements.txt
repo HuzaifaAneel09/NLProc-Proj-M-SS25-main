@@ -5,4 +5,6 @@ hf_xet
 transformers
 torch
 numpy
-scikit-learn 
+scikit-learn
+seaborn
+matplotlib
