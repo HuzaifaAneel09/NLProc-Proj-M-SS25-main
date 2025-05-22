@@ -16,7 +16,7 @@
     "expected_answer_contains": "HyperText Markup Language"
   },
   {
-    "question": "Who created Linux?",
-    "expected_answer_contains": "Linus Torvalds"
+    "question": "Who am I?",
+    "expected_answer_contains": "Huzaifa"
   }
 ]
